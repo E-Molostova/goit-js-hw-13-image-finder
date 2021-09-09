@@ -6,14 +6,14 @@ export default class ApiService {
 
   constructor() {
     this.page = 1;
+    this.input = '';
   }
 
-  fetchImg(e) {
-    const input = refs.form.elements.search.value;
+  fetchImg() {
     const queryParams = new URLSearchParams({
       image_type: 'photo',
       orientation: 'horizontal',
-      q: input,
+      q: this.input,
       page: this.page,
       per_page: 12,
       key: this.#KEY,
@@ -32,5 +32,9 @@ export default class ApiService {
 
   resetPage() {
     this.page = 1;
+  }
+
+  set newInput(value) {
+    this.input = value;
   }
 }

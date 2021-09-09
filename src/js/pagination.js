@@ -9,6 +9,8 @@ refs.loadMoreBtn.addEventListener('click', handleShowNextImg);
 
 function handleShowImages(e) {
   e.preventDefault();
+  const input = e.currentTarget.elements.search.value;
+  api.newInput = input;
   clearBody();
   api.resetPage();
   getImg();
